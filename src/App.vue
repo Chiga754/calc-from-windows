@@ -1,11 +1,13 @@
 <template>
-  <h1>start</h1>
+  <desktop></desktop>
 </template>
 
 <script>
+import Desktop from './components/Desktop.vue';
 
 export default {
-  name: 'App',
+    name: "App",
+    components: { Desktop }
 }
 </script>
 
@@ -14,6 +16,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+
 }
 </style>
