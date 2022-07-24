@@ -1,7 +1,10 @@
 <template>
-  <button class="keyboard-btn">
-    {{ value }}
-  </button>
+    <button v-if="value === 'sqrt'" class="keyboard-btn" @click="$emit('clickBtn', value)">
+        <sup>2</sup>&radic;x
+    </button>
+    <button v-else class="keyboard-btn" @click="$emit('clickBtn', value)">
+        {{ value }}
+    </button>
 </template>
 
 <script>

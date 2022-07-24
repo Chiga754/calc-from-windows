@@ -4,6 +4,7 @@
         v-for="btn in btns" 
         :key="btn.id"
         :value="btn.value"
+        @clickBtn="clickBtn"
     />
   </div>
 </template>
@@ -18,6 +19,11 @@ export default {
     data() {
         return {
             btns: btnsConfig1,
+        }
+    },
+    methods: {
+        clickBtn(value) {
+            this.$emit('clickBtn', value);
         }
     }
 }

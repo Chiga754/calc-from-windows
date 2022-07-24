@@ -8,7 +8,7 @@
       <i class="fa fa-history" aria-hidden="true"></i>
     </div>
     <div class="display">
-      42
+      <input type="text" :value="$store.state.result">
     </div>
   </div>
 </template>
@@ -39,7 +39,14 @@ span{
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  font-size: 50px;
   font-weight: bold;
+}
+input {
+  width: 100%;
+  font-size: 50px;
+  text-align: right;
+  background: inherit;
+  border: none;
+  color: #ffffff;
 }
 </style>

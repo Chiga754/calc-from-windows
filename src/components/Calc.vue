@@ -2,7 +2,7 @@
     <div class="calc">
         <calc-top-menu/>
         <calc-section-calculations/>
-        <calc-keyboard/>
+        <calc-keyboard @clickBtn="clickBtn"/>
     </div>
 </template>
 
@@ -17,6 +17,25 @@ export default {
         CalcKeyboard,
     },
     methods: {
+        clickBtn(value) {
+            if(value === 'CE' || value === 'C'){
+                this.$store.commit('resetRes', 0);
+                return;
+            }
+            if(value === "<-") {
+                this.$store.commit('setRes', this.$store.state.result.slice(0, -1));
+                return;
+            }
+            if(value === "=") {
+                this.$store.commit('setRes', eval(this.$store.state.result));
+                return;
+            }
+            if(value === 'sqrt'){
+                this.$store.commit('setRes', Math.sqrt(this.$store.state.result));
+                return;
+            }
+            this.$store.commit('addRes', value)
+        }
     }
 }
 </script>
