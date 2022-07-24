@@ -1,12 +1,15 @@
 <template>
   <div class="desktop">
-
+    <calc></calc>
   </div>
 </template>
 
 <script>
+import Calc from '@/components/Calc.vue';
 export default {
-
+    components: {
+        Calc,
+    } 
 }
 </script>
 
