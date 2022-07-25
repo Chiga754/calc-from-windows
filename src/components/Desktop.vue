@@ -2,18 +2,21 @@
   <div class="desktop">
     <calc/>
     <shortcut/>
+    <bottom-panel/>
   </div>
 </template>
 
 <script>
 import Calc from '@/components/Calc.vue';
 import App from '@/App.vue';
-import Shortcut from './Shortcut.vue';
+import Shortcut from '@/components/Shortcut.vue';
+import BottomPanel from '@/components/BottomPanel.vue';
 export default {
     components: {
         Calc,
         App,
         Shortcut,
+        BottomPanel,
     } 
 }
 </script>
