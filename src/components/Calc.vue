@@ -34,6 +34,10 @@ export default {
                 this.$store.commit('setRes', Math.sqrt(this.$store.state.result));
                 return;
             }
+            if(value === 'pow'){
+                this.$store.commit('setRes', Math.pow(this.$store.state.result, 2)); 
+                return;   
+            }
             this.$store.commit('addRes', value)
         }
     }
