@@ -1,7 +1,5 @@
 <template>
-  <desktop>
-
-  </desktop>
+  <desktop/>
 </template>
 
 <script>

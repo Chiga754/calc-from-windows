@@ -1,5 +1,5 @@
 <template>
-    <div class="calc">
+    <div v-if="$store.state.showCalc" class="calc">
         <calc-top-menu/>
         <calc-section-calculations/>
         <calc-keyboard @clickBtn="clickBtn"/>

@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     result: "0",
+    showCalc: true,
   },
   getters: {
   },
@@ -17,6 +18,9 @@ export default createStore({
     resetRes(state){
       state.result = "0";
     },
+    setShowCalc(state, bool){
+      state.showCalc = bool;
+    }
   },
   actions: {
   },
