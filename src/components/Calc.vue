@@ -42,13 +42,12 @@ export default {
         },
         dragging(event) {
             const calc = this.$refs.calc;
+            const desktop = calc.parentElement;
             let shiftX = event.clientX - calc.getBoundingClientRect().left;
             let shiftY = event.clientY - calc.getBoundingClientRect().top;
             calc.style.position = 'absolute';
             calc.style.zIndex = 1000;
-
-
-            moveAt(event.pageX, event.pageY);
+            moveAt(event.pageX - desktop.offsetLeft, event.pageY - desktop.offsetTop);
 
             function moveAt(pageX, pageY) {
                 calc.style.left = pageX - shiftX + 'px';
@@ -56,13 +55,13 @@ export default {
             }
 
             function onMouseMove(event) {
-                moveAt(event.pageX, event.pageY);
+                moveAt(event.pageX - desktop.offsetLeft, event.pageY - desktop.offsetTop);
             }
-
-            document.addEventListener('mousemove', onMouseMove);
-            calc.parentNode.onmouseup = function() {
-                calc.parentNode.removeEventListener('mousemove', onMouseMove);
-                calc.onmouseup = null;
+            
+            desktop.addEventListener('mousemove', onMouseMove);
+            desktop.onmouseup = function() {
+                desktop.removeEventListener('mousemove', onMouseMove);
+                event.target.onmouseup = null;
             }
         }
     }

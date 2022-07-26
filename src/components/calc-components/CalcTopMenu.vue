@@ -2,12 +2,13 @@
     <div class="calc-top-menu">
         <div class="title-app">Calculator</div>
         <div class="calc-top-menu_btns">
-            <div class="btn" @click="$store.commit('setShowCalc', false)">
+            <div class="btn" @mousedown.stop @click="$store.commit('setShowCalc', false)">
                 <i class="fa fa-minus" aria-hidden="true"></i>
             </div>
-            <div class="btn"><i class="fa fa-square-o" aria-hidden="true"></i></div>
+            <div class="btn" @mousedown.stop><i class="fa fa-square-o" aria-hidden="true"></i></div>
             <div 
                 class="btn"
+                @mousedown.stop
                 @click="$store.commit('setShowCalc', false)"
             >
                 <i class="fa fa-times" aria-hidden="true"></i>
