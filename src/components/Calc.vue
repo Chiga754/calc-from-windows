@@ -1,6 +1,6 @@
 <template>
-    <div v-if="$store.state.showCalc" class="calc">
-        <calc-top-menu/>
+    <div v-if="$store.state.showCalc" class="calc" ref="calc">
+        <calc-top-menu @mousedown="dragging"/>
         <calc-section-calculations/>
         <calc-keyboard @clickBtn="clickBtn"/>
     </div>
@@ -39,6 +39,31 @@ export default {
                 return;   
             }
             this.$store.commit('addRes', value)
+        },
+        dragging(event) {
+            const calc = this.$refs.calc;
+            let shiftX = event.clientX - calc.getBoundingClientRect().left;
+            let shiftY = event.clientY - calc.getBoundingClientRect().top;
+            calc.style.position = 'absolute';
+            calc.style.zIndex = 1000;
+
+
+            moveAt(event.pageX, event.pageY);
+
+            function moveAt(pageX, pageY) {
+                calc.style.left = pageX - shiftX + 'px';
+                calc.style.top = pageY - shiftY + 'px';
+            }
+
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+            calc.parentNode.onmouseup = function() {
+                calc.parentNode.removeEventListener('mousemove', onMouseMove);
+                calc.onmouseup = null;
+            }
         }
     }
 }

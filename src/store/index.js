@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     result: "0",
-    showCalc: false,
+    showCalc: true,
   },
   getters: {
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop">
+  <div class="desktop" ref="descktop">
     <calc/>
     <shortcut/>
     <bottom-panel/>
@@ -27,5 +27,7 @@ export default {
     height: 768px;
     background-image: url(@/assets/windows10.jpg);
     position: relative;
+    box-shadow: 0 0 50px #000000;
+    overflow: hidden;
 }
 </style>
