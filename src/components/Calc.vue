@@ -91,4 +91,12 @@ export default {
     height: 650px;
     background: #1f1f1f;
 }
+@media (max-width: 500px) {
+    .calc{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1000;
+    }
+}
 </style>

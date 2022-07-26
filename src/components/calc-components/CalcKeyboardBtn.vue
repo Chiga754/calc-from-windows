@@ -3,7 +3,7 @@
         <sup>2</sup>&radic;x
     </button>
     <button v-else-if="value === 'pow'" class="keyboard-btn" @click="$emit('clickBtn', value)">
-        <sub>2</sub>x
+        x<sup>2</sup>
     </button>
     <button v-else class="keyboard-btn" @click="$emit('clickBtn', value)">
         {{ value }}

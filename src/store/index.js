@@ -24,7 +24,7 @@ export default createStore({
     },
     reExpand(state) {
       state.expand = !state.expand;
-    }
+    },
   },
   actions: {
   },
