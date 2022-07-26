@@ -5,7 +5,11 @@
             <div class="btn" @mousedown.stop @click="$store.commit('setShowCalc', false)">
                 <i class="fa fa-minus" aria-hidden="true"></i>
             </div>
-            <div class="btn" @mousedown.stop><i class="fa fa-square-o" aria-hidden="true"></i></div>
+            <div class="btn" 
+                @mousedown.stop
+                @click="$emit('expand', $store.commit('reExpand'))"
+            >
+                <i class="fa fa-square-o" aria-hidden="true"></i></div>
             <div 
                 class="btn"
                 @mousedown.stop

@@ -1,6 +1,6 @@
 <template>
     <div v-if="$store.state.showCalc" class="calc" ref="calc">
-        <calc-top-menu @mousedown="dragging"/>
+        <calc-top-menu @mousedown="dragging" @expand="expand"/>
         <calc-section-calculations/>
         <calc-keyboard @clickBtn="clickBtn"/>
     </div>
@@ -63,6 +63,23 @@ export default {
                 desktop.removeEventListener('mousemove', onMouseMove);
                 event.target.onmouseup = null;
             }
+        },
+        expand(bool) {
+            const calc = this.$refs.calc;
+            if(this.$store.state.expand) {
+                calc.style.width = '100%';
+                calc.style.height = '95%';
+                calc.style.top = 0;
+                calc.style.left = 0;
+                calc.style.position = 'absolute';
+                calc.style.zIndex = 1000;
+            }else{
+                calc.style.width = '360px';
+                calc.style.height = '650px';
+                calc.style.top = 0;
+                calc.style.left = 0;
+            }
+            
         }
     }
 }

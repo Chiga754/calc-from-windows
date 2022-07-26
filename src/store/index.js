@@ -4,6 +4,7 @@ export default createStore({
   state: {
     result: "0",
     showCalc: true,
+    expand: false,
   },
   getters: {
   },
@@ -20,6 +21,9 @@ export default createStore({
     },
     setShowCalc(state, bool){
       state.showCalc = bool;
+    },
+    reExpand(state) {
+      state.expand = !state.expand;
     }
   },
   actions: {
